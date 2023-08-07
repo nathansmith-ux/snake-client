@@ -28,8 +28,16 @@ const handleUserInput = function (key) {
     connection.write("Move: down");
   } else if (key === "d") {
     connection.write("Move: right");
+  } else if (key === "f") {
+    connection.write("Say: You're doing amazing!")
+  } else if (key === " ") {
+    connection.write("Say: You're getting big!")
+  } else if (key === "q") {
+    connection.write("Say: Ahhhh a wall!")
+  } else if (key === "e") {
+    connection.write("Say: Will I ever be full?")
   } else {
-    console.log("Keyboard input is not w, a, s or d: ", key);
+    console.log("Keyboard input doesn't correspond to a movement key or message key: ", key);
   }
 };
 
