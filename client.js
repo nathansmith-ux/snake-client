@@ -12,7 +12,30 @@ const connect = function () {
   
   // Sends message when client is connected to server
   conn.on("connect", () => {
-    console.log("Successfully connected to game server, Welcome Player N8S")
+    console.log("Successfully connected to game server, Welcome Player N8S");
+      /* Hard-Coded Snake Movement
+    setTimeout(() => {
+      conn.write("Move: up");
+    }, 1000); 
+    setTimeout(() => {
+      conn.write("Move: up");
+    }, 1000); 
+    setTimeout(() => {
+      conn.write("Move: up");
+    }, 1000); 
+    setInterval(() => {
+      conn.write("Move: right");
+    }, 2000);
+    setInterval(() => {
+      conn.write("Move: down")
+    }, 3000);
+    setInterval(() => {
+      conn.write("Move: up");
+    }, 3000); 
+    setInterval(() => {
+      conn.write("Move: left");
+    }, 8000); 
+    */
   })
 
   // Sends message when client times out
