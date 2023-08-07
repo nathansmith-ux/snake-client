@@ -9,9 +9,13 @@ const connect = function () {
 
   // interpret incoming data as text
   conn.setEncoding("utf8");
+  
+  // Sends message when client is connected to server
   conn.on("connect", () => {
     console.log("Successfully connected to game server, Welcome Player N8S")
   })
+
+  // Sends message when client times out
   conn.on("data", (data) => {
     console.log(data);
   })
