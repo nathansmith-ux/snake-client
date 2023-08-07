@@ -1,3 +1,5 @@
+const { MOVE_UP_KEY, MOVE_LEFT_KEY, MOVE_DOWN_KEY, MOVE_RIGHT_KEY, keyMappings } = require('./constants')
+
 // Stores the active TCP connection object
 let connection;
 
@@ -18,24 +20,18 @@ const setupInput = (conn)  => {
  * @returns Keyboard letter typed, movement or escape command
  */
 const handleUserInput = function (key) {
-  if(key === '\u0003') {
-    process.exit()
-  } else if (key === "w") {
+  if (key === '\u0003') {
+    process.exit();
+  } else if (key === MOVE_UP_KEY) {
     connection.write("Move: up");
-  } else if (key === "a") {
+  } else if (key === MOVE_LEFT_KEY) {
     connection.write("Move: left");
-  } else if (key === "s") {
+  } else if (key === MOVE_DOWN_KEY) {
     connection.write("Move: down");
-  } else if (key === "d") {
+  } else if (key === MOVE_RIGHT_KEY) {
     connection.write("Move: right");
-  } else if (key === "f") {
-    connection.write("Say: You're doing amazing!")
-  } else if (key === " ") {
-    connection.write("Say: You're getting big!")
-  } else if (key === "q") {
-    connection.write("Say: Ahhhh a wall!")
-  } else if (key === "e") {
-    connection.write("Say: Will I ever be full?")
+  } else if (keyMappings[key]) {
+    connection.write(keyMappings[key]);
   } else {
     console.log("Keyboard input doesn't correspond to a movement key or message key: ", key);
   }
