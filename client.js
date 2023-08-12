@@ -2,28 +2,26 @@ const net = require("net");
 const { IP, PORT, playerName } = require('./constants');
 
 // establishes a connection with the game server
-const connect = function () {
+const connect = function() {
   const conn = net.createConnection({
-    host: IP, // IP address here,
-    port: PORT // PORT number here,
+    host: IP,
+    port: PORT
   });
 
-  // interpret incoming data as text
   conn.setEncoding("utf8");
   
-  // Sends message when client is connected to server
   conn.on("connect", () => {
-    console.log("Successfully connected to game server, Welcome Player ", playerName);
-  })
+    console.log("Successfully connected to game server, Welcome Player: ", playerName);
+  });
 
-  // Sends message when client times out
+  // Sends message when client times out or player dies
   conn.on("data", (data) => {
     console.log(data);
-  })
+  });
 
   return conn;
 };
 
 module.exports = {
   connect
-}
+};
